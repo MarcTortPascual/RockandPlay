@@ -1,0 +1,257 @@
+
+.fondos{
+   margin: auto;
+}
+body{
+    
+    overflow-x: hidden;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#bara{
+    display: grid;
+    color: white;
+    grid-template-columns: 15% 60% 25%; 
+    border-bottom: 2px solid black;
+}
+#bara{
+    margin-top: -2%;
+    margin-right: -2%;
+    margin-left: -2%;
+    margin-bottom: 15px;
+
+}
+#bara >div> img {
+
+    margin-left: 12%;
+    margin-top: 5%;
+}
+#bara > *:not(mt-vsiderbar){
+    background-color: #051648;
+    padding-top: 6%;
+    padding-right: 3%;
+}
+body{
+    background-color: #1f3b91  ;
+    background-size: cover;
+}
+a{color: black;}
+*{
+	font-family: Helvetica, Arial, sans-serif;
+    text-overflow: ellipsis;
+}
+#form-env{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: '. form .';
+    row-gap: 2%;
+}
+#formulario{
+    width: 100%;
+    background-color: #718edb;
+    border-radius: 15px;
+    padding: 1%;
+    border: #010a24 solid 2px;
+    grid-area: form;
+}
+#libros > div, #eventos > div{
+    
+    display: grid;
+    grid-template-columns: 1fr;
+ 
+    justify-content: center;
+    justify-items: center;
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+
+    text-align: center;
+    text-justify: center;
+    font-size: medium;
+}
+.boxgames{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-areas: 
+    "titulo titulo  " 
+    "img genero  " 
+    "img desarollador " 
+    "img descripcion " 
+    "boton boton";
+ 
+    justify-content: center;
+    justify-items: left;
+    text-align: left;
+
+    text-align: left;
+    text-justify: top;
+    font-size: medium;
+    width: 100%;
+    background-color: #446ad4;
+    border-radius: 15px;
+    padding: 1%;
+    border: #000513 solid 2px;
+}
+.imgjuegos{
+    border-radius: 6px;
+}
+.juegotitulo{
+   
+   margin: auto;
+   margin-bottom: 3%;
+   margin-top: 2%;
+}
+.juegoboton{
+    
+    margin: auto;
+    margin-top: 2%;
+}
+.formulario{
+    align-self: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+    column-gap: 2%;
+    margin: 0;
+    
+  
+}
+#juegos{
+    background: rgba(0, 0, 0, 0);
+    display: grid;
+    grid-template-columns: 1fr , 1fr , 1fr;
+ 
+    grid-gap: 2%;
+    justify-content: center;
+    justify-items: center;
+    text-align: left;
+}
+#libros, #eventos{
+    background: rgba(0, 0, 0, 0);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+ 
+    grid-gap: 2%;
+    justify-content: center;
+    justify-items: center;
+    text-align: left;
+}
+#sub {
+    border: 1px solid black;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    background-color: green;
+}
+#nosub{
+    border: 1px solid black;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    background-color: red;
+}
+.formulario>div>div>label{
+    
+    text-align: center;
+}
+.formulario>#formulario-1>div{
+    column-gap: 2%;
+}
+#fecha {
+    border:solid black 2px;
+    width: 10%;
+    border-radius: 5px;
+    color: rgb(192, 192, 192);
+    background: rgba(104, 84, 63, 0.5);
+}
+#botenlace{
+    background-color: blue;
+  
+    text-decoration: none;
+    
+    border-radius: 15px;
+    padding: 2%;
+}
+#botenlace>a{
+    text-decoration: none;
+    color: white;
+    height: 100%;
+    width: 100%;
+}
+
+input:focus{
+    border: none;
+}
+.cuerpo{
+    grid-area: cuerpo;
+    margin: 5%;
+    
+   
+}
+.titulo{
+    grid-area: titulo;
+    
+    
+}
+.cuerpo2{
+    grid-area: cuerpo2;
+    
+}
+.titulo2{
+    grid-area: titulo2;
+}
+.imagenes{
+    grid-area: imagenes;
+    padding-left: -10%;
+}
+#inicio{
+    display: grid;
+   
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "titulo titulo2" "cuerpo cuerpo2"  "imagenes cuerpo2";
+    align-items: center;
+    align-content: center;
+    text-align: center;
+   
+}
+
+
+
+@media (width > 1200px) {
+    #juegos{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    #libros, #eventos{
+        
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+       
+    }
+    .formulario {
+     
+        grid-template-columns: 1fr 1fr 1fr;
+        
+    }
+    
+    
+}
+.formulario >div>div{
+    display: grid;
+    grid-template-columns: minmax(25%, 1fr) 1fr;
+   
+}
+
+.formlog {
+    grid-template-columns: 1fr ;
+}
+#enter{
+    justify-self: center;
+    grid-column: 1/-1;
+    
+}
+.formlibs{
+    grid-template-columns: 1fr;
+}
+.formulario>div>div{
+    text-align: center;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+}

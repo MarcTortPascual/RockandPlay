@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/mtcraft22/mt-components@master/mt-horinzontal-sidebar.js"></script>
+    <title>Liga de juegos</title> 
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div id="bara">
+        <div id="imgbara">
+            <img class="fondos" src="/media/Fondos.png" width="75%" height="75%" >
+        </div> 
+        <mt-vsiderbar items='
+            [{
+                "Tittle":"Inicio", 
+                "Adr":"main.html"
+            },
+            {
+                "Tittle":"Registro",
+                "Adr":"liga.html"
+            }]' css="css/mtcss.css"
+    ></mt-vsiderbar>
+    <div id="user"></div>
+    </div>
+    
+    <h1>¡Inscribete!</h1>
+    <div id="form-env">
+        <div id="formulario">
+            <form class="formulario formreg" action="usuarios" method="post">
+                <div id="formulario-1">
+                    <div><label>Nombre:</label><input name="nombre" type="text"></div>
+                    <div><label>Apellidos: </label><input name="apedillo" type="text"></div>
+                    <div><label>Contraseña: </label><input name="contra" type="password"></div>
+                    <div><label>Email: </label><input name="correo" type="email"></div>
+                </div>
+                <div id="formulario-2">
+                    <div><label>Hombre: </label><input name="genero" value="hombre" type="radio"></div>
+                    <div><label>Mujer: </label><input name="genero" value="mujer" type="radio"></div>
+                    <div><label>Otro</label><input name="genero" value="otro" type="radio"></div>
+                    <div><label>No quiero decirlo: </label><input name="genero" value="NULL" type="radio"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <h1>Tengo cuenta</h1>
+    <div id="form-env">
+        <div id="formulario">
+
+            <form class="formulario formlog" action="login" method="post">
+                <div id="formulario-1">
+                    <div><label>Nombre:</label><input name="user" type="text"></div>
+                    <div><label>Email:</label><input name="email" type="email"></div>
+                    <div><label>Contraseña:</label><input name="password" type="password"></div>
+
+                </div>
+                <div id="enter">
+                    <div class="enter"><button type="submit">Login</button></div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+<script src="js/buscajuegos.js"></script>
+<script src="js/getloged.js"></script>
+
+</html>

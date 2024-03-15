@@ -1,0 +1,45 @@
+*{
+    justify-content: center;
+    justify-items: center;
+    margin: 0;
+   
+}   
+ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    list-style: none;
+    background-color: #051648;
+    justify-content: left;
+    color: white;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+    border-bottom: black 12px;
+    
+}
+li{
+    margin-top: 3.5%;
+    margin-bottom: 2%;
+    font-size: 30px;
+    justify-items: center;
+    margin-left: 2%;
+}
+li:hover{
+    border-radius: 5px;
+    background-color: #41548d;
+    cursor: pointer;
+    padding: 0.25%;
+}
+ul a{
+    text-decoration: none;
+    color: white;
+}
+.selected{ 
+
+    background-color: #41548d;
+    border-radius: 5px;
+    padding: 0.25%;
+    
+}
