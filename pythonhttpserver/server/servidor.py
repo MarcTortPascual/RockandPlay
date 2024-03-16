@@ -3,6 +3,7 @@ import json
 import platform
 import hashlib
 import sqlite3
+from ascii2utf import *
 
 con = sqlite3.connect("../db/Rockandplaydb.db")
 cur = con.cursor()
@@ -198,6 +199,7 @@ class api(httpclass.httpmessage):
                         self.end_header()
                         self.sessions[id[:-1]]["loged"]=True
                         self.send_body(json.dumps(self.sessions[id[:-1]]))
+                        
             except KeyError:
                 self.send_code(200)
                 self.send_header("Server", f"Mtcraft_http_server(Python {VERSION} on {platform.system()})")
@@ -226,7 +228,7 @@ class api(httpclass.httpmessage):
 <link rel='stylesheet' href='/css/main.css'>
 </head>
 <html>
-<h1>Inscrito en {self.Post["game"]}</h1>
+<h1>Inscrito en {convert_ascii(self.Post["game"])}</h1>
 <a href='http://{httpclass.ip}:{httpclass.port}/catalogo.html'>Ir a catalogo</a>
 </html>""")
         elif self.path == "/cancelar":
@@ -251,7 +253,7 @@ class api(httpclass.httpmessage):
     <link rel='stylesheet' href='/css/main.css'>
     </head>
     <html>
-    <h1>Eliminado de {self.Post["game"]}</h1>
+    <h1>Eliminado de {convert_ascii(self.Post["game"])}</h1>
     <a href='http://{httpclass.ip}:{httpclass.port}/catalogo.html'>Ir a catalogo</a>
     </html>""")         
                         except ValueError:
@@ -393,7 +395,7 @@ class api(httpclass.httpmessage):
 <title>Liga de juegos</title>
 <link rel='stylesheet' href='/css/main.css'>
 </head>""")
-                    self.send_body(f"<h1>Hola {user['nombre']}</h1>")
+                    self.send_body(f"<h1>Hola {convert_ascii(user['nombre'])[0].upper() + convert_ascii(user['nombre'])[1:]}</h1>")
                     self.send_body(f"<a href='http://{httpclass.ip}:{httpclass.port}/liga.html'>Vuelve al inicio</a>")
                 else:
                     self.send_code(403)
@@ -434,7 +436,7 @@ class api(httpclass.httpmessage):
             Valilate = False
             try:
                 email = self.Post['email'].lower()
-                val_Play = cur.execute(f"select name,email from Players where name = ?and email = ?",(f"{self.Post['user'].lower()}",f"{email.replace("@","%40")}"))
+                val_Play = cur.execute(f"select name,email from Players where name = ?and email = ?",(f"{encode_ascii(self.Post['user'].lower())}",f"{encode_ascii(email)}"))
                 Player = val_Play.fetchall()
                 print(Player)
                 if len(Player)==1:
@@ -444,11 +446,9 @@ class api(httpclass.httpmessage):
             finally:
                 self.send_code(200)
                 self.send_header(
-                "content-type", f"{httpclass.httpmimes['json']}"
+                "content-type: ", f"{httpclass.httpmimes['json']}"
                 )
-                
                 self.end_header()
-   
                 resp = json.dumps({"valido":Valilate})
                 self.send_body(resp)
         elif self.path == "/getgames":
@@ -470,6 +470,7 @@ class api(httpclass.httpmessage):
             self.send_header(
             "content-type", httpclass.httpmimes["json"]
             )
+            
             self.end_header()
             self.send_body(json.dumps(GamesDB))
 
