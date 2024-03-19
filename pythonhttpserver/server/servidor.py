@@ -446,7 +446,7 @@ class api(httpclass.httpmessage):
             finally:
                 self.send_code(200)
                 self.send_header(
-                "content-type: ", f"{httpclass.httpmimes['json']}"
+                "content-type", f"{httpclass.httpmimes['json']}"
                 )
                 self.end_header()
                 resp = json.dumps({"valido":Valilate})
