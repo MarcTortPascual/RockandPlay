@@ -1,4 +1,4 @@
-﻿import httpclass
+import httpclass
 import json
 import platform
 import hashlib
@@ -128,6 +128,7 @@ class api(httpclass.httpmessage):
                 user["contra"] = self.Post['contra']
                 user["correo"] = self.Post['correo']
                 user["genero"] = self.Post['genero']
+                user["juegos"] = []
                 Player_id_cur = cur.execute(f"Select id from Players where name= ?",(f"{self.Post['nombre'].lower()}",))
                 for i in Player_id_cur:
                     Player_id = i[0]
@@ -145,7 +146,7 @@ class api(httpclass.httpmessage):
                     else:
                         
                         a = self.Post["juegos"].replace("+"," ")
-                        
+                        user["juegos"].append(a)
                 
                         juego_id_cur = cur.execute(f"SELECT id from Games where name= ?",(f"{a}",))
                         for j in juego_id_cur:
@@ -294,7 +295,10 @@ class api(httpclass.httpmessage):
 </head>
 <body><h1>No disponible</h1></body>
 """)
-                            games = user["juegos"]
+                            try:
+                                games = user["juegos"]
+                            except KeyError:
+                                games = []
                             GamesDB = {}
                             GamesDB["video_games"] = []
                             
@@ -446,7 +450,7 @@ class api(httpclass.httpmessage):
             finally:
                 self.send_code(200)
                 self.send_header(
-                "content-type", f"{httpclass.httpmimes['json']}"
+                "content-type", f" {httpclass.httpmimes['json']}"
                 )
                 self.end_header()
                 resp = json.dumps({"valido":Valilate})
